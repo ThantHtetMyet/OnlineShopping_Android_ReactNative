@@ -1,0 +1,12 @@
+{
+  "name": "Beauty_Emoji",
+  "displayName": "Beauty_Emoji",
+  "expo": {
+    "name": "Beauty_Emoji",
+    "slug": "Beauty_Emoji",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
