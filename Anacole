@@ -80,8 +80,10 @@ using System;
 using System.Collections.Generic;			
 public class Program
 {
-	public static void Main()
-	{
+	[HttpPost]
+public string PostMultipleSimpleValues(string name, int value, DateTime entered, string action = null)
+{
+ 
 		string data = "53438294";
 		// Console.WriteLine(data);
 		List<int> arr = new List<int>();
@@ -107,7 +109,7 @@ public class Program
 		foreach(int i in arr){
 			Console.WriteLine(i);	
 		}
-		
+		}
 	}
 }
 
