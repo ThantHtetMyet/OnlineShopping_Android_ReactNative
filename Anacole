@@ -1,0 +1,113 @@
+####################### REACT NATIVE #####################################
+
+//This is an example of online Emulator by https://aboutreact.com
+import React, {Component} from 'react';
+import { Text, View, StyleSheet,TextInput,TouchableOpacity } from 'react-native';
+import axios from 'axios';
+
+class App extends Component {
+    state = {
+       userInput: ''
+     }
+   
+   onChangeText= (text) => {
+      this.setState({ userInput: text })
+   }
+   
+   submit = (userInput) => {
+      alert('USER Input =>' + userInput)
+      
+      const params = JSON.stringify({
+        "inputData": userInput
+      });
+
+      axios.post("localhost:8000/SortInput", params,{
+          "headers": {
+          "content-type": "application/json",
+        },
+      }).then(function(response) {
+          console.log(response);
+      }).catch(function(error) {
+        console.log(error);
+      });
+    };
+   
+  render() {
+    return (
+      <View style={styles.container}>
+        <TextInput style = {styles.input}
+           underlineColorAndroid = "transparent"
+           placeholder = "Password"
+           placeholderTextColor = "#9a73ef"
+           autoCapitalize = "none"
+           onChangeText = {this.onChangeText}/>    
+       <TouchableOpacity
+       style = {styles.submitButton}
+       onPress = {() => this.submit(this.state.userInput)}>
+        <Text style = {styles.submitButtonText}> Submit </Text>
+      </TouchableOpacity>
+      </View>
+    );
+  }
+}
+
+
+export default App;
+
+const styles = StyleSheet.create({
+   container: {
+      paddingTop: 23
+   },
+   input: {
+      margin: 15,
+      height: 40,
+      borderColor: '#7a42f4',
+      borderWidth: 1
+   },
+   submitButton: {
+      backgroundColor: '#7a42f4',
+      padding: 10,
+      margin: 15,
+      height: 40,
+   },
+   submitButtonText:{
+      color: 'white'
+   }
+})
+
+# Sorting....
+using System;
+using System.Collections.Generic;			
+public class Program
+{
+	public static void Main()
+	{
+		string data = "53438294";
+		// Console.WriteLine(data);
+		List<int> arr = new List<int>();
+		string temp = "";
+		
+		for(int i=0;i<data.Length;i++){
+			if(i==0){
+				temp = temp + data[i];
+			} else if(i == data.Length-1) {
+				temp = temp + "," + data[i];
+			} else {
+				temp = temp + "," + data[i] ;
+			}
+		}
+		
+		String[] tempList = temp.Split(',');
+		
+		for(int j=0;j<tempList.Length;j++) {
+			arr.Add(Int32.Parse(tempList[j]));
+		}
+		
+		arr.Sort();
+		foreach(int i in arr){
+			Console.WriteLine(i);	
+		}
+		
+	}
+}
+
