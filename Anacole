@@ -146,7 +146,7 @@ public JsonResult PostMultipleSimpleValues(string name, int value, DateTime ente
             		status = "Success"
        		};
 	
-		return Json(resultModel, JsonRequestBehavior.AllowGet);
+		return Json(person, JsonRequestBehavior.AllowGet);
 		}
 	}
 }
